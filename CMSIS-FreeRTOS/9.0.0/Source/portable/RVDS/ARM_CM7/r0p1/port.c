@@ -118,7 +118,7 @@ is defined. */
 #define portNVIC_SYSTICK_PRI				( ( ( uint32_t ) configKERNEL_INTERRUPT_PRIORITY ) << 24UL )
 
 /* Constants required to check the validity of an interrupt priority. */
-#define portFIRST_USER_INTERRUPT_NUMBER		( 16 )
+#define portFIRST_USER_INTERRUPT_NUMBER		( 64 )		//raw is 16 ,now set 64 beause of useless of xTaskResumeFromISR
 #define portNVIC_IP_REGISTERS_OFFSET_16 	( 0xE000E3F0 )
 #define portAIRCR_REG						( * ( ( volatile uint32_t * ) 0xE000ED0C ) )
 #define portMAX_8_BIT_VALUE					( ( uint8_t ) 0xff )
@@ -501,7 +501,7 @@ __asm void xPortPendSVHandler( void )
 	bx r14
 }
 /*-----------------------------------------------------------*/
-
+volatile uint32_t _dwTickCount = 0;
 void xPortSysTickHandler( void )
 {
 	/* The SysTick runs at the lowest interrupt priority, so when this interrupt
@@ -509,6 +509,8 @@ void xPortSysTickHandler( void )
 	save and then restore the interrupt mask value as its value is already
 	known - therefore the slightly faster vPortRaiseBASEPRI() function is used
 	in place of portSET_INTERRUPT_MASK_FROM_ISR(). */
+	_dwTickCount++;
+	//printf("TH=%u\n\r",_dwTickCount);
 	vPortRaiseBASEPRI();
 	{
 		/* Increment the RTOS tick. */

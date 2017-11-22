@@ -426,6 +426,115 @@
           <file category="doc"    name="http://www.freertos.org/a00111.html"/>
         </files>
       </component>
+	  
+     <component Cgroup="FreeRTOS-Plus-Common" Cversion="9.0.0" condition="FreeRTOS Core">
+        <description>FreeRTOS-Plus-Common :FAT function ;TCP function...</description>
+        <RTE_Components_h>
+          #define RTE_RTOS_FreeRTOS_PLUS_COMMON        /* RTOS FreeRTOS PLUS COMMON */
+        </RTE_Components_h>
+        <files>
+			<file category="include" name="Utilities/include"/>
+			<file category="header"  name="Utilities/include/date_and_time.h"/>
+			<file category="header"  name="Utilities/include/UDPLoggingPrintf.h"/>
+			<file category="source"  name="Utilities/date_and_time.c"/> 
+			<file category="source"  name="Utilities/printf-stdarg.c"/> 
+			<file category="source"  name="Utilities/UDPLoggingPrintf.c"/> 
+       </files>
+     </component>
+	 
+	 <component Cgroup="FreeRTOS-Plus-CLI" Cversion="9.0.0" condition="FreeRTOS Core">
+        <description>FreeRTOS-Plus Command Line </description>
+        <RTE_Components_h>
+          #define RTE_RTOS_FreeRTOS_PLUS_CLI        /* RTOS FreeRTOS PLUS CLI */
+        </RTE_Components_h>
+        <files>
+			<file category="header"  name="FreeRTOS-Plus-CLI/FreeRTOS_CLI.h"/>
+			<file category="source"  name="FreeRTOS-Plus-CLI/FreeRTOS_CLI.c"/> 
+       </files>
+      </component>
+	 
+	 <component Cgroup="FreeRTOS-Plus-TCP-BASE" Cversion="9.0.0" condition="FreeRTOS Core">
+        <description>FreeRTOS Plus TCP-BASE </description>
+        <RTE_Components_h>
+          #define RTE_RTOS_FreeRTOS_PLUS_TCP_BASE        /* RTOS FreeRTOS PLUS TCP-BASE */
+        </RTE_Components_h>
+        <files>
+			<file category="include" name="FreeRTOS-Plus-TCP/include/"/>
+			<file category="header"  name="FreeRTOS-Plus-TCP/include/FreeRTOSIPConfigDefaults.h"/>
+			<file category="header"  name="FreeRTOS-Plus-TCP/include/FreeRTOS_IP_Private.h"/>
+			<file category="header"  name="FreeRTOS-Plus-TCP/include/FreeRTOS_UDP_IP.h"/>
+			<file category="header"  name="FreeRTOS-Plus-TCP/include/FreeRTOS_ARP.h"/>
+			<file category="header"  name="FreeRTOS-Plus-TCP/include/FreeRTOS_Sockets.h"/>
+			<file category="header"  name="FreeRTOS-Plus-TCP/include/FreeRTOS_errno_TCP.h"/>
+			<file category="header"  name="FreeRTOS-Plus-TCP/include/FreeRTOS_DHCP.h"/>
+			<file category="header"  name="FreeRTOS-Plus-TCP/include/FreeRTOS_Stream_Buffer.h"/>
+			<file category="header"  name="FreeRTOS-Plus-TCP/include/IPTraceMacroDefaults.h"/>
+			<file category="header"  name="FreeRTOS-Plus-TCP/include/FreeRTOS_DNS.h"/>
+			<file category="header"  name="FreeRTOS-Plus-TCP/include/FreeRTOS_TCP_IP.h"/>
+			<file category="header"  name="FreeRTOS-Plus-TCP/include/NetworkBufferManagement.h"/>
+			<file category="header"  name="FreeRTOS-Plus-TCP/include/FreeRTOS_IP.h"/>
+			<file category="header"  name="FreeRTOS-Plus-TCP/include/FreeRTOS_TCP_WIN.h"/>
+			<file category="header"  name="FreeRTOS-Plus-TCP/include/NetworkInterface.h"/>
+			<file category="header"  name="FreeRTOS-Plus-TCP/portable/Compiler/GCC/pack_struct_end.h"/>
+			<file category="header"  name="FreeRTOS-Plus-TCP/portable/Compiler/GCC/pack_struct_start.h"/>		<file category="header"  name="FreeRTOS-Plus-TCP/protocols/include/FreeRTOS_TCP_server.h"/>			<file category="header"  name="FreeRTOS-Plus-TCP/include/hr_gettime.h"/>					
+			
+
+			<file category="source"  name="FreeRTOS-Plus-TCP/portable/BufferManagement/BufferAllocation_2.c"/>
+			<file category="source"  name="FreeRTOS-Plus-TCP/FreeRTOS_ARP.c"/>
+			<file category="source"  name="FreeRTOS-Plus-TCP/FreeRTOS_Sockets.c"/>
+			<file category="source"  name="FreeRTOS-Plus-TCP/FreeRTOS_UDP_IP.c"/>
+			<file category="source"  name="FreeRTOS-Plus-TCP/FreeRTOS_DHCP.c"/>
+			<file category="source"  name="FreeRTOS-Plus-TCP/FreeRTOS_Stream_Buffer.c"/>
+			<file category="source"  name="FreeRTOS-Plus-TCP/FreeRTOS_DNS.c"/>
+			<file category="source"  name="FreeRTOS-Plus-TCP/FreeRTOS_TCP_IP.c"/>
+			<file category="source"  name="FreeRTOS-Plus-TCP/FreeRTOS_IP.c"/>
+			<file category="source"  name="FreeRTOS-Plus-TCP/FreeRTOS_TCP_WIN.c"/>
+       </files>
+      </component>
+	  
+	  <component Cgroup="FreeRTOS-FAT" Cversion="9.0.0" condition="FreeRTOS Core">
+        <description>FreeRTOS+FAT Provides file-system interfaces for the FAT file-system.</description>
+        <RTE_Components_h>
+          #define RTE_RTOS_FreeRTOS_FAT        /* RTOS FreeRTOS FAT */
+        </RTE_Components_h>
+        <files>
+			<file category="include" name="FAT/include/"/>
+			<file category="header"  name="FAT/include/FreeRTOSFATConfigDefaults.h"/>
+			<file category="header"  name="FAT/include/ff_error.h"/>
+			<file category="header"  name="FAT/include/ff_headers.h"/>
+			<file category="header"  name="FAT/include/ff_stdio.h"/>
+			<file category="header"  name="FAT/include/FreeRTOS_errno_FAT.h"/>
+			<file category="header"  name="FAT/include/ff_fat.h"/>
+			<file category="header"  name="FAT/include/ff_ioman.h"/>
+			<file category="header"  name="FAT/include/ff_string.h"/>
+			<file category="header"  name="FAT/include/ff_crc.h"/>
+			<file category="header"  name="FAT/include/ff_fatdef.h"/>
+			<file category="header"  name="FAT/include/ff_locking.h"/>
+			<file category="header"  name="FAT/include/ff_sys.h"/>
+			<file category="header"  name="FAT/include/ff_devices.h"/>
+			<file category="header"  name="FAT/include/ff_file.h"/>
+			<file category="header"  name="FAT/include/ff_memory.h"/>
+			<file category="header"  name="FAT/include/ff_time.h"/>
+			<file category="header"  name="FAT/include/ff_dir.h"/>
+			<file category="header"  name="FAT/include/ff_format.h"/>
+			<file category="header"  name="FAT/include/ff_old_config_defines.h"/>
+			<file category="source"  name="FAT/ff_dir.c"/>
+			<file category="source"  name="FAT/ff_format.c"/>
+			<file category="source"  name="FAT/ff_stdio.c"/>
+			<file category="source"  name="FAT/ff_error.c"/>
+			<file category="source"  name="FAT/ff_ioman.c"/>
+			<file category="source"  name="FAT/ff_string.c"/>
+			<file category="source"  name="FAT/ff_crc.c"/>
+			<file category="source"  name="FAT/ff_fat.c"/>
+			<file category="source"  name="FAT/ff_locking.c"/>
+			<file category="source"  name="FAT/ff_sys.c"/>
+			<!-- <file category="source"  name="FAT/ff_dev_support.c"/> -->
+			<file category="source"  name="FAT/ff_file.c"/>
+			<file category="source"  name="FAT/ff_memory.c"/>
+			<file category="source"  name="FAT/ff_time.c"/>		
+        </files>
+      </component>
+	  
     </bundle>
   </components>
 
