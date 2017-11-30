@@ -1,0 +1,46 @@
+DPO_MT7601U_LinuxSTA_3.0.0.4_RPi_760b-master
+
+
+//change wifi name:
+Z:\home\4412\ximo-7601\tmp\DPO_MT7601U_LinuxSTA_3.0.0.4_RPi_760b-master\include\rtmp_def.h
+
+#define INF_MAIN_DEV_NAME		"ra"
+#define INF_MBSSID_DEV_NAME		"ra"
+
+//specific kernel source and compile tools
+Z:\home\4412\ximo-7601\DPO_MT7601U_LinuxSTA_3.0.0.4_RPi_760b-master\Makefile
+line 14:
+$(warning qpq-start $(WIFI_MODE) ,$(RT28xx_MODE) ,$(CHIPSET))
+
+line 30-31:
+#PLATFORM = PC
+#PLATFORM = ARM
+
+line 49:
+PLATFORM = SMDK
+
+line 104:
+ifeq ($(PLATFORM),ARM)
+LINUX_SRC = /home/4412/code/linux-3.5
+CROSS_COMPILE = /home/TinyCompileTool/opt/FriendlyARM/toolschain/4.5.1/bin/arm-linux-
+ARCH=arm
+endif
+
+line 272-282:
+ifeq ($(PLATFORM),SMDK)
+#LINUX_SRC = /home/bhushan/itcenter/may28/linux-2.6-samsung
+#CROSS_COMPILE = /usr/local/arm/4.2.2-eabi/usr/bin/arm-linux-
+LINUX_SRC = /home/4412/code/linux-3.5
+CROSS_COMPILE = /home/TinyCompileTool/opt/FriendlyARM/toolschain/4.5.1/bin/arm-linux-
+ARCH=arm
+endif
+
+
+add Debug macro:
+Z:\home\4412\ximo-7601\DPO_MT7601U_LinuxSTA_3.0.0.4_RPi_760b-master\os\linux\config.mk
+WFLAGS += -DCONFIG_STA_SUPPORT -DSCAN_SUPPORT -DDBG
+
+line153:
+HAS_HOSTAPD_SUPPORT=y
+line181:
+HAS_LED_CONTROL_SUPPORT=y
